@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sims playlist for work</title>
+<style>        
+    *{margin: 0; padding: 0;border: 0;
+                     outline: 0; dlsplay:block; vertical-align: center;
+                     }
+    .container{
+        width: 100vw; height: 100vh;
+        background: url(simsbg.png), #000000;;
+        background-position: 50vw auto;
+        animation: shift 7s infinite alternate; 
+        }
+     
+       #control{margin: auto; margin-bottom: 30px;}
+       @keyframes shift{
+        from{background-position: 0 0;}
+        to{background-position: -50vw 0;}
+        }
+
+       .item img {width: 65%;
+                  margin: 60px auto;
+                  ertical-align: center;
+                }
+       button {
+               background-color: transparent;;
+               border: 50px;
+               color: darkblue;
+               padding: 0px;
+               text-align: center;
+               text-decoration: none;
+               display: inline-block;
+               font-size: 0px;
+               margin: 0px 0px;
+                }
+
+
+
+ 
+
+    input[type=range] { 
+    -webkit-appearance: none; 
+    width: 30%; height: 8px; 
+    background: #32CD32; 
+    cursor: pointer; 
+    border-radius: 0; /* Chrome */ 
+    transition: background 450ms ease-in; 
+    }
+
+    input[type=range]:focus { 
+        outline: none; 
+        } 
+
+        input[type=range]::-webkit-slider-thumb{ 
+            -webkit-appearance: none; 
+            width: 12px; 
+            height: 12px; 
+            background: #fff; 
+            border: 10px; 
+
+            border-radius:50%; 
+            cursor: pointer; 
+            } 
+            input[type=range]::-moz-range-thumb{ 
+                -webkit-appearance: none; 
+                width:10px; 
+                height:10px; 
+                background: #fff; 
+                border: 3px white; 
+                border-radius:50%; 
+                cursor: pointer; }
+
+</style>
+
+</head>
+<body>
+
+
+<center>
+ <div class="container">
+         <div class="item">
+            <div class="item-image"><img src="sims.png";></div></div>
+   
+              
+
+              
+              <button id="oneBut"><img src="play1.png" alt="song1" style="display: block;"></button>
+              <audio id="sndOne" src="sims1.mp3"></audio><nbsd><nbsd>
+              <button id="twoBut"><img src="play2.png" alt="song2" style="display: block;"></button>
+              <audio id="sndTwo" src="sims2.mp3"></audio><nbsd><nbsd>
+              <button id="thrBut"><img src="play3.png" alt="song3" style="display: block;"></button>
+              <audio id="sndThr" src="sims3.mp3"></audio><nbsd><nbsd>
+              <button id="fouBut"><img src="play4.png" alt="song4" style="display: block;"></button>
+              <audio id="sndFou" src="sims4.mp3"></audio> <br><br><br>
+
+              <input id="vol" type="range" max="80" min="0">
+
+     </center>
+
+
+
+     <script type="text/javascript">
+        // 객체 변수 함수 이벤트 조건 반복 배열
+        // 토글 왔다갔다
+        // boolean true/false;
+
+         vol.value = 100;
+         vol.oninput = function(){
+             sndOne.volume = vol.value / 100;
+             sndTwo.volume = vol.value / 100;
+             sndThr.volume = vol.value / 100;
+             sndFou.volume = vol.value / 100;
+         } 
+
+         var state = false; 
+
+         oneBut.onclick = function() {
+                if(!state){
+                    sndOne.play();
+                    state =true; 
+                }else{
+                    sndOne.pause();
+                    state=false;
+                }
+                 }
+        twoBut.onclick = function() {
+                if(!state){
+                    sndTwo.play();
+                    state =true; 
+                }else{
+                    sndTwo.pause();
+                    state=false;
+                }
+                 }
+        thrBut.onclick = function() {
+                if(!state){
+                    sndThr.play();
+                    state =true; 
+                }else{
+                    sndThr.pause();
+                    state=false;
+                }
+                 }
+        fouBut.onclick = function() {
+                if(!state){
+                    sndFou.play();
+                    state =true; 
+                }else{
+                    sndFou.pause();
+                    state=false;
+                }
+                 } 
+
+                                           
+     </script> 
+    
+</body>
+</html>
