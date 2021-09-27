@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Sims theme song for work</title>
-	<link rel="shortcut icon" type="image/x-icon" href="https://chaeyun-oh.github.io/web-interface-2/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://chaeyun-oh.github.io/web-interface-2/favicon.ico" />
 <style>        
     *{margin: 0; padding: 0;border: 0;
                      outline: 0; dlsplay:block; vertical-align: center;
@@ -21,8 +21,8 @@
         to{background-position: -50vw 0;}
         }
 
-       .item img {width: 65%;
-                  margin: 60px auto;
+       .item img {width: 60%;
+                  margin: 40px auto;
                   ertical-align: center;
                 }
        button {
@@ -37,7 +37,7 @@
                margin: 0px 0px;
                 }
 
-
+      
 
  
 
@@ -73,6 +73,60 @@
                 border-radius:50%; 
                 cursor: pointer; }
 
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #050955;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
 </style>
 
 </head>
@@ -80,9 +134,16 @@
 
 
 <center>
+
+   
+
+
  <div class="container">
          <div class="item">
-            <div class="item-image"><img src="sims.png";></div></div>
+            <div class="item-image"><img src="sims.png";></div>
+
+</div>
+
    
               
 
@@ -96,6 +157,11 @@
               <button id="fouBut"><img src="play4.png" alt="song4" style="display: block;"></button>
               <audio id="sndFou" src="sims4.mp3"></audio> <br><br><br>
 
+                            <div style= " font-size : 20px; color : white;">
+                               <div class="popup" onclick="myFunction()">Click me!
+  <span class="popuptext" id="myPopup">Click the buttons to play/pause</span>
+   </div></div> <br>
+
               <input id="vol" type="range" max="80" min="0">
 
      </center>
@@ -106,6 +172,16 @@
         // 객체 변수 함수 이벤트 조건 반복 배열
         // 토글 왔다갔다
         // boolean true/false;
+        function myFunction() {
+        var popup = document.getElementById("myPopup");
+        opup.classList.toggle("show");
+        }
+
+
+        function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
 
          vol.value = 100;
          vol.oninput = function(){
